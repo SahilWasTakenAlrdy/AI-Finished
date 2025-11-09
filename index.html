@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini Advanced Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --background: #111214;
+        --surface-1: #1a1b1e;
+        --surface-2: #232529;
+        --surface-3: #2d3035;
+        --text-primary: #f0f0f5;
+        --text-secondary: #a0a2ab;
+        --accent-primary: #8a5cf6; /* Purple */
+        --accent-secondary: #2dd4bf; /* Teal */
+        --accent-glow: rgba(138, 92, 246, 0.4);
+        --border-color: #363a40;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--background);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--surface-3);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-primary);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Glow Effects */
+      .glow-border {
+        position: relative;
+        z-index: 1;
+      }
+      .glow-border::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, var(--border-color), var(--surface-3));
+        -webkit-mask: 
+            linear-gradient(#fff 0 0) content-box, 
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        z-index: -1;
+      }
+      .glow-focus-ring:focus-within {
+        box-shadow: 0 0 12px var(--accent-glow);
+      }
+      .glow-focus-ring:focus-within::before {
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      }
+
+      /* Selection Style */
+      ::selection {
+        background-color: var(--accent-primary);
+        color: var(--text-primary);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

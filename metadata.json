@@ -1,0 +1,7 @@
+{
+  "name": "Ai finished",
+  "description": "A polished AI chat application that leverages the power of Gemini for multimodal conversations, deep thinking, web and maps grounding, and image generation.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
